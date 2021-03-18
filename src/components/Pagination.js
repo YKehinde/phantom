@@ -2,9 +2,9 @@ import React from 'react';
 
 const Pagination = ({pageLimit, totalItems, paginate}) => {
   const pageNumbers = [];
-for (let i = 1; i <= Math.ceil(totalItems / pageLimit); i++) {
-  pageNumbers.push(i)
-}
+  for (let i = 1; i <= Math.ceil(totalItems / pageLimit); i++) {
+    pageNumbers.push(i)
+  }
   return (
     <>
     {totalItems > pageLimit ?
