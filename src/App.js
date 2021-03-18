@@ -1,13 +1,47 @@
 import './App.css';
 import React, { useState } from 'react';
+import Pagination from './components/Pagination';
 
 function App() {
 
   const [submit, setSubmit] = useState(false);
+  const [list, updateList] = useState([]);
+  const [url, updateUrl] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageLimit] = useState(3);
 
-  function handleSubmit() {
-    setSubmit(true)
+  const lastItemIndex = currentPage * pageLimit;
+  const firstItemIndex = lastItemIndex - pageLimit;
+  const currentList = list.slice(firstItemIndex, lastItemIndex);
+
+  const handleSubmit = (evt) => {
+    /* Prevent default submit behaviour */
+    evt.preventDefault();
+    /* Check the input field isn't empty */
+    /* If empty, alert the user and do nothing */
+    if (url === '') {
+      alert("please enter a URL");
+      return;
+    }
+    /* Perform URL check and return true or false */
+    /* If false, alert the user and do nothing */
+    if (!checkUrl(url)) {
+      alert("Please enter a valid URL (http:// .com, etc.");
+      return;
+    }
+    /* set boolean to render thank you component */
+    setSubmit(true);
+    updateList(arr => [...arr, url]);
   }
+
+  /* Check the URL is a valid URL */
+  const checkUrl = (url) => {
+    let link = document.createElement('a');
+    link.href = url;
+    return (link.protocol.includes("http") && link.href.includes("://") && link.hostname.includes("."));
+  }
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   /* 
   * empty the form field
@@ -18,18 +52,29 @@ function App() {
     setSubmit(false)
   }
 
-
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <header className="app-header">
         <h1>Bookmarker</h1>
       </header>
-      <main>
+      <main main className = "app-body" >
         {!submit? 
-        <form>
-          <input type="text" placeholder="Enter a URL" />
-          <button onClick={handleSubmit}>Submit</button>
-        </form>
+        <div>
+          <form onSubmit = {handleSubmit} >
+            <input type="text" placeholder="Enter a URL" onChange={e => updateUrl(e.target.value)} />
+            <button type="submit" value="Submit">Submit</button>
+          </form>
+        
+          <ul>
+            {currentList.map((listItem, index) =>
+              <li key={index}>{listItem}</li>
+            )}
+          </ul>
+          <Pagination 
+          pageLimit={pageLimit} 
+          totalItems={list.length} 
+          paginate={paginate} />
+        </div>
         :
         <div>
           Thank you for your submission
