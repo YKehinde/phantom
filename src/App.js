@@ -9,7 +9,12 @@ function App() {
     setSubmit(true)
   }
 
-  function backToForm() {
+  /* 
+  * empty the form field
+  * return to main page (more like hide thank you component and rerender form component) 
+  */
+  const backToForm = () => {
+    updateUrl('');
     setSubmit(false)
   }
 
