@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import Pagination from './components/Pagination';
+import Item from './components/Item';
 
 function App() {
 
@@ -67,13 +68,14 @@ function App() {
         
           <ul>
             {currentList.map((listItem, index) =>
-              <li key={index}>{listItem}</li>
+              <Item listItem={listItem} index={index} />
             )}
           </ul>
           <Pagination 
-          pageLimit={pageLimit} 
-          totalItems={list.length} 
-          paginate={paginate} />
+            pageLimit={pageLimit} 
+            totalItems={list.length} 
+            paginate={paginate} 
+            />
         </div>
         :
         <div>

@@ -7,6 +7,7 @@ for (let i = 1; i <= Math.ceil(totalItems / pageLimit); i++) {
 }
   return (
     <>
+    {totalItems > pageLimit ?
       <ul className="pagination">
         {pageNumbers.map(number => (
           <li key={number} className="page-number">
@@ -16,6 +17,8 @@ for (let i = 1; i <= Math.ceil(totalItems / pageLimit); i++) {
           </li>
         ))}
       </ul>
+    : null
+  }
     </>
   );
 }
