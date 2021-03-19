@@ -61,7 +61,7 @@ function App() {
       <main main className = "app-body" >
         {!submit? 
         <div>
-          <form onSubmit = {handleSubmit} >
+          <form onSubmit={handleSubmit} >
             <input type="text" placeholder="Enter a URL" onChange={e => updateUrl(e.target.value)} />
             <button type="submit" value="Submit">Submit</button>
           </form>
@@ -73,14 +73,16 @@ function App() {
           </ul>
           <Pagination 
             pageLimit={pageLimit} 
-            totalItems={list.length} 
+            totalItems={list.length}
+            currentPage={currentPage}
             paginate={paginate} 
             />
         </div>
         :
         <div>
-          Thank you for your submission
-          <button onClick={backToForm}>Back to form</button>
+          <p>Thank you for your submission</p>
+          <p>Your bookmark: {url}</p>
+          <a href="#" onClick={backToForm}>Back to the overview page</a>
         </div>
         }
       </main>
