@@ -32,6 +32,8 @@ I found a solution to use the local storage to store the state but didn't manage
 
 I had issue with checking the url/site existed. The solution I intended to use was to use a XMLHttpRequest to check if the site returns a 200 or a 404 but I had fake sites or sites i knew didn't exist returning 200s not returning 404s. I also tried a few npm packages but found that they had either deprecated or just didn't work.
 
+I found that once deployed to heroku, the URL validation stopped working and didn't throw an error. I'm unsure why this is but with more time, would have liked to investigate this.
+
 ## Running
 ### `npm start`
 
