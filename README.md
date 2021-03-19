@@ -45,7 +45,8 @@ You will also see any lint errors in the console.
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Deploed onto Heroku. 
+[https://ykphantom.herokuapp.com/#](https://ykphantom.herokuapp.com/#)
 
 ### `npm run build` fails to minify
 
