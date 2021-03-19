@@ -1,4 +1,5 @@
 import React from 'react';
+import "./pagination.css";
 
 const Pagination = ({pageLimit, totalItems, currentPage, paginate}) => {
   const pageNumbers = [];
@@ -7,6 +8,7 @@ const Pagination = ({pageLimit, totalItems, currentPage, paginate}) => {
   }
   return (
     <>
+    {/* previous button */}
     {totalItems > pageLimit ?
       <ul className="pagination">
         {currentPage > 1 ? 
@@ -17,6 +19,7 @@ const Pagination = ({pageLimit, totalItems, currentPage, paginate}) => {
           </li> :
           null
         }
+        {/* page numbers */}
         {pageNumbers.map(number => (
           <li key={number} className="page-number">
             <a onClick={() => paginate(number)} href="#" className="page-link">
@@ -24,6 +27,7 @@ const Pagination = ({pageLimit, totalItems, currentPage, paginate}) => {
             </a>
           </li>
         ))}
+        {/* next button */}
         {
           currentPage >= 1 && currentPage < pageNumbers.length ?
           <li onClick = {() => paginate(currentPage + 1)} className = "page-link">

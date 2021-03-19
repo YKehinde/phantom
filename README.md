@@ -14,42 +14,25 @@
 * Displays the user’s submission.
 * Includes a link back to the overview page.
 
-### Technologies to use
-Basic layout (HTML/CSS).
-Pure JavaScript or React if preferred
+## Solution
+I created a simple form with an input and submit button which would take the inputs vallue and add it to the list. 
+If the URL entered in the input is a valid url, then the url will be accepted and the user will be taken to the thank you page which is just a conditionally rendered component. The user never leaves the page (single page application) - this goes for the pagination too.
+a link on the thank you page removed the boolean value causing that thank you message to show, removing it from sight and showing the form again whilst also emptying the form input, in case it isn't already cleared.
 
-## Deliverables
-* Form validation must be custom written.
-* All links entered in the list must persist page reload.
-* Where applicable, all code should follow the Google style guidelines.
-* All code should be commented.
-* The application should be accompanied by a brief TDD (Technical Design Document) outlining the solution’s design and any limitations.
-* Source code to be linked to a repository (private or public).
-* A public link to the final app.
-* Feel free to add any additional features that further demonstrates your skills.
+## Todos
+* Retain list on page reload
+* Validate URL by way of returning a 200 or 404 response
 
-## Bonus points
-All JavaScript should be compiled into a single minified file using the Google Closure Compiler (using the command line compiler) with advanced optimisations. 
+## Limitations
+I tried to componentise as much as possible within the time I had and had a bit of an issue with the thankyou component. The link to go back wouldn't respond and with more time, I'd have debugged it and have no doubt i'd have fixed the issue.
 
-## Links/Resources
-* Google HTML/CSS Style Guide
-* JavaScript Style Guide
-* Google Advanced Compilation Guide
+I'd also have liked to convert the form into a component in order to keep the App.js file as clean as possible.abs
 
-## Contacts / Questions
-If you have any questions regarding the brief please feel free to contact:
+I found a solution to use the local storage to store the state but didn't manage to get it working and didn't want to waste too much time on it and not complete other aspects of the task. I'd have liked to have implemented this with more time.
 
-John Chipps-Harding
-john.chipps-harding@phntms.com
+I had issue with checking the url/site existed. The solution I intended to use was to use a XMLHttpRequest to check if the site returns a 200 or a 404 but I had fake sites or sites i knew didn't exist returning 200s not returning 404s. I also tried a few npm packages but found that they had either deprecated or just didn't work.
 
-## Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
+## Running
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -57,53 +40,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
